@@ -6,8 +6,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CardView")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Xamarin.Forms CardView")]
+[assembly: AssemblyDescription("Simple package that helps creating a Card View for Xamarin.forms projects.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CardView")]
@@ -15,7 +15,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
-
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>PaulKaram.CardView.XamarinFormsCardView</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Paul Karam</authors>
+    <owners>Paul Karam</owners>
+    <licenseUrl>https://github.com/tiger4589/Xamarin.Forms-CardView/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tiger4589/Xamarin.Forms-CardView</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Simple package that allows you to create a CardView in Xamarin.Forms projects</description>
+    <releaseNotes>Initial Release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Xamarin Forms Xamarin.Forms CardView</tags>
+  </metadata>
+</package>
