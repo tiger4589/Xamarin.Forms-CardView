@@ -2,16 +2,20 @@
 
 namespace CardView
 {
-    public class CardView : Frame
+    public class CardView : ContentView
     {
+        private Frame _outerFrame;
         private Frame _innerFrame;
 
         public CardView()
         {
-            Padding = new Thickness(5, 2, 5, 2);
-            HasShadow = false;
-            OutlineColor = Color.Transparent;
-            BackgroundColor = Color.Transparent;
+            _outerFrame = new Frame
+            {
+                Padding = new Thickness(5, 2, 5, 2),
+                HasShadow = false,
+                OutlineColor = Color.Transparent,
+                BackgroundColor = Color.Transparent,
+            };
 
             _innerFrame = new Frame
             {
@@ -27,7 +31,8 @@ namespace CardView
                 _innerFrame.HasShadow = true;
             });
 
-            Content = _innerFrame;
+            _outerFrame.Content = _innerFrame;
+            Content = _outerFrame;
         }
 
         public static readonly BindableProperty CardViewContentProperty = BindableProperty.Create(
@@ -92,7 +97,7 @@ namespace CardView
 
         private void ChangeCardViewHeightRequest()
         {
-            HeightRequest = CardViewHeightRequest;
+            _outerFrame.HeightRequest = CardViewHeightRequest;
             _innerFrame.HeightRequest = CardViewHeightRequest - 5;
         }
     }
