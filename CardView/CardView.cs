@@ -11,10 +11,10 @@ namespace CardView
         {
             _outerFrame = new Frame
             {
-                Padding = new Thickness(5, 2, 5, 2),
+                Padding = new Thickness(0.5),
                 HasShadow = false,
                 OutlineColor = Color.Transparent,
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Color.Transparent
             };
 
             _innerFrame = new Frame
@@ -48,6 +48,20 @@ namespace CardView
             defaultValue: 300.0,
             propertyChanged: CardViewHeightRequestChanged);
 
+        public static readonly BindableProperty CardViewOutlineColorProperty = BindableProperty.Create(
+            propertyName: "CardViewOutlineColor",
+            declaringType: typeof(CardView),
+            returnType: typeof(Color),
+            defaultValue: Color.Transparent,
+            propertyChanged: CardViewOutlineColorChanged);
+
+        public static readonly BindableProperty CardViewOutlineColorThicknessProperty = BindableProperty.Create(
+            propertyName: "CardViewOutlineColorThickness",
+            returnType: typeof(Thickness),
+            declaringType: typeof(CardView),
+            defaultValue: new Thickness(0.5),
+            propertyChanged: CardViewOutlineColorThicknessChanged);
+        
         public View CardViewContent
         {
             get
@@ -72,6 +86,30 @@ namespace CardView
             }
         }
 
+        public Color CardViewOutlineColor
+        {
+            get
+            {
+                return (Color) GetValue(CardViewOutlineColorProperty);
+            }
+            set
+            {
+                SetValue(CardViewOutlineColorProperty, value);
+            }
+        }
+
+        public Thickness CardViewOutlineColorThickness
+        {
+            get
+            {
+                return (Thickness) GetValue(CardViewOutlineColorThicknessProperty);
+            }
+            set
+            {
+                SetValue(CardViewOutlineColorThicknessProperty, value);
+            }
+        }
+
         private static void CardViewContentChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
             if (oldvalue == newvalue)
@@ -90,6 +128,26 @@ namespace CardView
             ((CardView)bindable).ChangeCardViewHeightRequest();
         }
 
+        private static void CardViewOutlineColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            if (oldvalue == newvalue)
+            {
+                return;
+            }
+
+            ((CardView) bindable).ChangeCardViewOutlineColor();
+        }
+
+        private static void CardViewOutlineColorThicknessChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            if (oldvalue == newvalue)
+            {
+                return;
+            }
+
+            ((CardView) bindable).ChangeCardViewOutlineColorThickness();
+        }
+        
         private void ChangeCardViewContent()
         {
             _innerFrame.Content = CardViewContent;
@@ -99,6 +157,15 @@ namespace CardView
         {
             _outerFrame.HeightRequest = CardViewHeightRequest;
             _innerFrame.HeightRequest = CardViewHeightRequest - 5;
+        }
+
+        private void ChangeCardViewOutlineColor()
+        {
+            _outerFrame.BackgroundColor = CardViewOutlineColor;
+        }
+        private void ChangeCardViewOutlineColorThickness()
+        {
+            _outerFrame.Padding = CardViewOutlineColorThickness;
         }
     }
 }
