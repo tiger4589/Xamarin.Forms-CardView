@@ -62,6 +62,13 @@ namespace CardView
             defaultValue: new Thickness(0.5),
             propertyChanged: CardViewOutlineColorThicknessChanged);
         
+        public static readonly BindableProperty CardViewOutlineColorHasShadowProperty = BindableProperty.Create(
+            propertyName: "CardViewOutlineColorHasShadow",
+            returnType: typeof(bool),
+            declaringType: typeof(CardView),
+            defaultValue: false,
+            propertyChanged: CardViewOutlineColorHasShadowChanged);
+
         public View CardViewContent
         {
             get
@@ -110,6 +117,18 @@ namespace CardView
             }
         }
 
+        public bool CardViewOutlineColorHasShadow
+        {
+            get
+            {
+                return (bool) GetValue(CardViewOutlineColorHasShadowProperty);
+            }
+            set
+            {
+                SetValue(CardViewOutlineColorHasShadowProperty, value);
+            }
+        }
+
         private static void CardViewContentChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
             if (oldvalue == newvalue)
@@ -147,6 +166,16 @@ namespace CardView
 
             ((CardView) bindable).ChangeCardViewOutlineColorThickness();
         }
+
+        private static void CardViewOutlineColorHasShadowChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            if (oldvalue == newvalue)
+            {
+                return;
+            }
+
+            ((CardView) bindable).ChangeCardViewOutlineColorHasShadow();
+        }
         
         private void ChangeCardViewContent()
         {
@@ -166,6 +195,11 @@ namespace CardView
         private void ChangeCardViewOutlineColorThickness()
         {
             _outerFrame.Padding = CardViewOutlineColorThickness;
+        }
+
+        private void ChangeCardViewOutlineColorHasShadow()
+        {
+            _outerFrame.HasShadow = CardViewOutlineColorHasShadow;
         }
     }
 }
