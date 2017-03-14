@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>XamarinForms.CardView</id>
-    <version>1.0.0.3</version>
+    <version>1.0.0.4</version>
     <title>$title$</title>
     <authors>Paul Karam</authors>
     <owners>Paul Karam</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/tiger4589/Xamarin.Forms-CardView</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Simple package that allows you to create a CardView in Xamarin.Forms projects for the three platforms (Android, iOS, UWP)</description>
-    <releaseNotes>Added CardView OutlineColor support</releaseNotes>
+    <releaseNotes>Added CardView OutlineColor HasShadow property</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Xamarin Forms Xamarin.Forms CardView XamarinForms</tags>
   </metadata>
