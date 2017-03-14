@@ -3,7 +3,7 @@ A Package to create a CardView using Xamarin.Forms that works on the three platf
 It is simple to use in a straight forward fashion.
 You may either use it in C#, or in XAML.
 
-##CarvView Bindable Properties
+##CardView Bindable Properties
 
 | Property                              | Property Name                 | Property Type   | Usage |
 | :-------------:                       | :-------------:               | :-------------: | :-------------: |
