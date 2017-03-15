@@ -19,7 +19,7 @@ namespace CardView
 
             _innerFrame = new Frame
             {
-                Padding = new Thickness(5),
+                Padding = new Thickness(0),
                 Margin = new Thickness(2, 2, 2, 2)
             };
 
@@ -68,6 +68,13 @@ namespace CardView
             declaringType: typeof(CardView),
             defaultValue: false,
             propertyChanged: CardViewOutlineColorHasShadowChanged);
+
+        public static readonly BindableProperty CardViewInnerPaddingProperty = BindableProperty.Create(
+            propertyName: "CardViewInnerPadding",
+            returnType: typeof(Thickness),
+            declaringType: typeof(CardView),
+            defaultValue: new Thickness(0),
+            propertyChanged: CardViewInnerPaddingChanged);
 
         public View CardViewContent
         {
@@ -129,6 +136,18 @@ namespace CardView
             }
         }
 
+        public Thickness CardViewInnerPadding
+        {
+            get
+            {
+                return (Thickness) GetValue(CardViewInnerPaddingProperty);
+            }
+            set
+            {
+                SetValue(CardViewInnerPaddingProperty, value);
+            }
+        }
+
         private static void CardViewContentChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
             if (oldvalue == newvalue)
@@ -176,6 +195,16 @@ namespace CardView
 
             ((CardView) bindable).ChangeCardViewOutlineColorHasShadow();
         }
+
+        private static void CardViewInnerPaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            if (oldvalue == newvalue)
+            {
+                return;
+            }
+
+            ((CardView) bindable).ChangeInnerPadding();
+        }
         
         private void ChangeCardViewContent()
         {
@@ -185,7 +214,7 @@ namespace CardView
         private void ChangeCardViewHeightRequest()
         {
             _outerFrame.HeightRequest = CardViewHeightRequest;
-            _innerFrame.HeightRequest = CardViewHeightRequest - 5;
+            _innerFrame.HeightRequest = CardViewHeightRequest;
         }
 
         private void ChangeCardViewOutlineColor()
@@ -200,6 +229,11 @@ namespace CardView
         private void ChangeCardViewOutlineColorHasShadow()
         {
             _outerFrame.HasShadow = CardViewOutlineColorHasShadow;
+        }
+
+        private void ChangeInnerPadding()
+        {
+            _innerFrame.Padding = CardViewInnerPadding;
         }
     }
 }
