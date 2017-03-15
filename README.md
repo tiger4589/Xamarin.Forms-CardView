@@ -7,11 +7,12 @@ You may either use it in C#, or in XAML.
 
 | Property                              | Property Name                 | Property Type   | Usage           | Default Value   |
 | :-------------:                       | :-------------:               | :-------------: | :-------------: | :-------------: |
-| CardViewContentProperty               | CardViewContent               | View            | Used to add any desired content inside the CardView                        | None        |
-| CardViewHeightRequestProperty         | CardViewHeightRequest         | double          | Used to give a desired height for the CardView                            | 300.0       |
-| CardViewOutlineColorProperty          | CardViewOutlineColor          | Color           | Used to give the CardView an outline Color                               | Transparent |
-| CardViewOutlineColorThicknessProperty | CardViewOutlineColorThickness | Thickness       | Used to give the outline Color a desired thickness                   | 0.5         |
-| CardViewOutlineColorHasShadowProperty | CardViewOutlineColorHasShadow | bool            | In case you have used an outline color, decide if you want a shadow or not. | false       |
+| CardViewContentProperty               | CardViewContent               | View            | CardViewContent | None            |
+| CardViewHeightRequestProperty         | CardViewHeightRequest         | double          | Height Request  | 300.0           |
+| CardViewOutlineColorProperty          | CardViewOutlineColor          | Color           | Outline Color   | Transparent     |
+| CardViewOutlineColorThicknessProperty | CardViewOutlineColorThickness | Thickness       | OutlineColor Thickness   | 0.5    |
+| CardViewOutlineColorHasShadowProperty | CardViewOutlineColorHasShadow | bool            | Shadow With OutlineColor | false  |
+| CardViewInnerPaddingProperty          | CardViewInnerPadding          | Thickness       | Padding inside CardView  |  0     |
 
 Example:  
 ```xml
