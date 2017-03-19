@@ -5,14 +5,16 @@ You may either use it in C#, or in XAML.
 
 ## CardView Bindable Properties
 
-| Property                              | Property Name                 | Property Type   | Usage           | Default Value   |
-| :-------------:                       | :-------------:               | :-------------: | :-------------: | :-------------: |
-| CardViewContentProperty               | CardViewContent               | View            | CardViewContent | None            |
-| CardViewHeightRequestProperty         | CardViewHeightRequest         | double          | Height Request  | 300.0           |
-| CardViewOutlineColorProperty          | CardViewOutlineColor          | Color           | Outline Color   | Transparent     |
-| CardViewOutlineColorThicknessProperty | CardViewOutlineColorThickness | Thickness       | OutlineColor Thickness   | 0.5    |
-| CardViewOutlineColorHasShadowProperty | CardViewOutlineColorHasShadow | bool            | Shadow With OutlineColor | false  |
-| CardViewInnerPaddingProperty          | CardViewInnerPadding          | Thickness       | Padding inside CardView  |  0     |
+| Property                              		  | Property Name                 		    | Property Type   | Usage           		 			  | Default Value   |
+| :-------------:                       		  | :-------------:               		    | :-------------: | :-------------: 		 			  | :-------------: |
+| CardViewContentProperty               		  | CardViewContent               		    | View            | CardView Content 		 			  | None            |
+| CardViewHeightRequestProperty         		  | CardViewHeightRequest                   | double          | Height Request  		 		 	  | 300.0           |
+| CardViewOutlineColorProperty          		  | CardViewOutlineColor                    | Color           | Outline Color   		 			  | Transparent     |
+| CardViewInnerFrameOutlineColorProperty 		  | CardViewInnerFrameOutlineColor          | Color 		  | Inner OutlineColor 					  | Transparent 	|
+| CardViewOutlineColorThicknessProperty 		  | CardViewOutlineColorThickness           | Thickness       | OutlineColor Thickness   			  | 0    		    |
+| CardViewInnerFrameOutlineColorThicknessProperty | CardViewInnerFrameOutlineColorThickness | Thickness 	  | Inner OutlineColor Thickness 		  | 0 				|
+| CardViewHasShadowProperty 					  | CardViewHasShadow 						| bool            | Card View Shadow 					  | false           |  
+| IsSwipeToClearEnabledProperty          		  | IsSwipeToClearEnabled          			| bool       	  | Enable to clear Content With a Swipe  |  false          |
 
 Example:  
 ```xml

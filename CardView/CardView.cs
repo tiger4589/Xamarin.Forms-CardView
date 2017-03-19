@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace CardView
 {
@@ -6,12 +7,13 @@ namespace CardView
     {
         private Frame _outerFrame;
         private Frame _innerFrame;
+        private PanGestureRecognizer _panGestureRecognizer = new PanGestureRecognizer();
 
         public CardView()
         {
             _outerFrame = new Frame
             {
-                Padding = new Thickness(0.5),
+                Padding = new Thickness(0),
                 HasShadow = false,
                 OutlineColor = Color.Transparent,
                 BackgroundColor = Color.Transparent
@@ -20,16 +22,10 @@ namespace CardView
             _innerFrame = new Frame
             {
                 Padding = new Thickness(0),
-                Margin = new Thickness(2, 2, 2, 2)
+                HasShadow = false,
+                OutlineColor = Color.Transparent,
+                BackgroundColor = Color.Transparent
             };
-
-            Device.OnPlatform(iOS: () =>
-            {
-                _innerFrame.HasShadow = false;
-            }, Default: () =>
-            {
-                _innerFrame.HasShadow = true;
-            });
 
             _outerFrame.Content = _innerFrame;
             Content = _outerFrame;
@@ -55,27 +51,41 @@ namespace CardView
             defaultValue: Color.Transparent,
             propertyChanged: CardViewOutlineColorChanged);
 
+        public static readonly BindableProperty CardViewInnerFrameOutlineColorProperty = BindableProperty.Create(
+            propertyName: "CardViewInnerFrameOutlineColor",
+            declaringType: typeof(CardView),
+            returnType: typeof(Color),
+            defaultValue: Color.Transparent,
+            propertyChanged: CardViewInnerFrameOutlineColorChanged);
+
         public static readonly BindableProperty CardViewOutlineColorThicknessProperty = BindableProperty.Create(
             propertyName: "CardViewOutlineColorThickness",
             returnType: typeof(Thickness),
             declaringType: typeof(CardView),
-            defaultValue: new Thickness(0.5),
+            defaultValue: new Thickness(0),
             propertyChanged: CardViewOutlineColorThicknessChanged);
-        
-        public static readonly BindableProperty CardViewOutlineColorHasShadowProperty = BindableProperty.Create(
-            propertyName: "CardViewOutlineColorHasShadow",
-            returnType: typeof(bool),
-            declaringType: typeof(CardView),
-            defaultValue: false,
-            propertyChanged: CardViewOutlineColorHasShadowChanged);
 
-        public static readonly BindableProperty CardViewInnerPaddingProperty = BindableProperty.Create(
-            propertyName: "CardViewInnerPadding",
+        public static readonly BindableProperty CardViewInnerFrameOutlineColorThicknessProperty = BindableProperty.Create(
+            propertyName: "CardViewInnerFrameOutlineColorThickness",
             returnType: typeof(Thickness),
             declaringType: typeof(CardView),
             defaultValue: new Thickness(0),
-            propertyChanged: CardViewInnerPaddingChanged);
+            propertyChanged: CardViewInnerFrameOutlineColorThicknessChanged);
 
+        public static readonly BindableProperty CardViewHasShadowProperty = BindableProperty.Create(
+            propertyName: "CardViewHasShadow",
+            returnType: typeof(bool),
+            declaringType: typeof(CardView),
+            defaultValue: false,
+            propertyChanged: CardViewHasShadowChanged);
+
+        public static readonly BindableProperty IsSwipeToClearEnabledProperty = BindableProperty.Create(
+            propertyName: "IsSwipeToClearEnabled",
+            returnType: typeof(bool),
+            declaringType: typeof(CardView),
+            defaultValue: false,
+            propertyChanged: CardViewSwipeToClearPropertyChanged);
+        
         public View CardViewContent
         {
             get
@@ -104,7 +114,7 @@ namespace CardView
         {
             get
             {
-                return (Color) GetValue(CardViewOutlineColorProperty);
+                return (Color)GetValue(CardViewOutlineColorProperty);
             }
             set
             {
@@ -112,11 +122,23 @@ namespace CardView
             }
         }
 
+        public Color CardViewInnerFrameOutlineColor
+        {
+            get
+            {
+                return (Color)GetValue(CardViewInnerFrameOutlineColorProperty);
+            }
+            set
+            {
+                SetValue(CardViewInnerFrameOutlineColorProperty, value);
+            }
+        }
+
         public Thickness CardViewOutlineColorThickness
         {
             get
             {
-                return (Thickness) GetValue(CardViewOutlineColorThicknessProperty);
+                return (Thickness)GetValue(CardViewOutlineColorThicknessProperty);
             }
             set
             {
@@ -124,86 +146,80 @@ namespace CardView
             }
         }
 
-        public bool CardViewOutlineColorHasShadow
+        public Thickness CardViewInnerFrameOutlineColorThickness
         {
             get
             {
-                return (bool) GetValue(CardViewOutlineColorHasShadowProperty);
+                return (Thickness)GetValue(CardViewInnerFrameOutlineColorThicknessProperty);
             }
             set
             {
-                SetValue(CardViewOutlineColorHasShadowProperty, value);
+                SetValue(CardViewInnerFrameOutlineColorThicknessProperty, value);
             }
         }
 
-        public Thickness CardViewInnerPadding
+        public bool CardViewHasShadow
         {
             get
             {
-                return (Thickness) GetValue(CardViewInnerPaddingProperty);
+                return (bool)GetValue(CardViewHasShadowProperty);
             }
             set
             {
-                SetValue(CardViewInnerPaddingProperty, value);
+                SetValue(CardViewHasShadowProperty, value);
+            }
+        }
+
+        public bool IsSwipeToClearEnabled
+        {
+            get
+            {
+                return (bool) GetValue(IsSwipeToClearEnabledProperty);
+            }
+            set
+            {
+                SetValue(IsSwipeToClearEnabledProperty, value);
             }
         }
 
         private static void CardViewContentChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
-            if (oldvalue == newvalue)
-            {
-                return;
-            }
-            ((CardView)bindable).ChangeCardViewContent();
+            CompareOldAndNewValue(oldvalue, newvalue, () => ((CardView)bindable).ChangeCardViewContent());
         }
 
         private static void CardViewHeightRequestChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
-            if (oldvalue == newvalue)
-            {
-                return;
-            }
-            ((CardView)bindable).ChangeCardViewHeightRequest();
+            CompareOldAndNewValue(oldvalue, newvalue, () => ((CardView)bindable).ChangeCardViewHeightRequest());
         }
 
         private static void CardViewOutlineColorChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
-            if (oldvalue == newvalue)
-            {
-                return;
-            }
+            CompareOldAndNewValue(oldvalue, newvalue, () => ((CardView)bindable).ChangeCardViewOutlineColor());
+        }
 
-            ((CardView) bindable).ChangeCardViewOutlineColor();
+        private static void CardViewInnerFrameOutlineColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            CompareOldAndNewValue(oldvalue, newvalue, () => ((CardView)bindable).ChangeCardViewInnerFrameOutlineColor());
         }
 
         private static void CardViewOutlineColorThicknessChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
-            if (oldvalue == newvalue)
-            {
-                return;
-            }
-
-            ((CardView) bindable).ChangeCardViewOutlineColorThickness();
+            CompareOldAndNewValue(oldvalue, newvalue, () => ((CardView)bindable).ChangeCardViewOutlineColorThickness());
         }
 
-        private static void CardViewOutlineColorHasShadowChanged(BindableObject bindable, object oldvalue, object newvalue)
+        private static void CardViewInnerFrameOutlineColorThicknessChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
-            if (oldvalue == newvalue)
-            {
-                return;
-            }
-
-            ((CardView) bindable).ChangeCardViewOutlineColorHasShadow();
+            CompareOldAndNewValue(oldvalue, newvalue, () => ((CardView)bindable).ChangeCardViewInnerFrameOutlineColorThickness());
         }
 
-        private static void CardViewInnerPaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
+        private static void CardViewHasShadowChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
-            if (oldvalue == newvalue)
-            {
-                return;
-            }
+            CompareOldAndNewValue(oldvalue, newvalue, () => ((CardView)bindable).ChangeCardViewOutlineColorHasShadow());
+        }
 
-            ((CardView) bindable).ChangeInnerPadding();
+        private static void CardViewSwipeToClearPropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            CompareOldAndNewValue(oldvalue, newvalue, () => ((CardView) bindable).ChangeIsSwipeToClearProperty());
         }
         
         private void ChangeCardViewContent()
@@ -221,19 +237,72 @@ namespace CardView
         {
             _outerFrame.BackgroundColor = CardViewOutlineColor;
         }
+
+        private void ChangeCardViewInnerFrameOutlineColor()
+        {
+            _innerFrame.BackgroundColor = CardViewInnerFrameOutlineColor;
+        }
+
         private void ChangeCardViewOutlineColorThickness()
         {
             _outerFrame.Padding = CardViewOutlineColorThickness;
         }
 
-        private void ChangeCardViewOutlineColorHasShadow()
+        private void ChangeCardViewInnerFrameOutlineColorThickness()
         {
-            _outerFrame.HasShadow = CardViewOutlineColorHasShadow;
+            _innerFrame.Padding = CardViewInnerFrameOutlineColorThickness;
         }
 
-        private void ChangeInnerPadding()
+        private void ChangeCardViewOutlineColorHasShadow()
         {
-            _innerFrame.Padding = CardViewInnerPadding;
+            _outerFrame.HasShadow = CardViewHasShadow;
+        }
+
+        private void ChangeIsSwipeToClearProperty()
+        {
+            if (IsSwipeToClearEnabled)
+            {
+                SetUpPanGesture();
+                Content.GestureRecognizers.Add(_panGestureRecognizer);
+                return;
+            }
+
+            Content.GestureRecognizers.Remove(_panGestureRecognizer);
+        }
+
+        private static void CompareOldAndNewValue(object oldvalue, object newvalue, Action changeValueOfChosenProperty)
+        {
+            if (oldvalue == newvalue)
+            {
+                return;
+            }
+            changeValueOfChosenProperty();
+        }
+
+        private void SetUpPanGesture()
+        {
+            _panGestureRecognizer.TouchPoints = 1;
+            _panGestureRecognizer.PanUpdated += PanGestureRecognizerOnPanUpdated;
+        }
+
+        private void PanGestureRecognizerOnPanUpdated(object sender, PanUpdatedEventArgs panUpdatedEventArgs)
+        {
+            double totalWidthNeededForClearingContent = Content.Width * 4 / 5;
+            if (!(Math.Abs(panUpdatedEventArgs.TotalX) < totalWidthNeededForClearingContent))
+            {
+                return;
+            }
+
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                if (Content == null)
+                {
+                    return;
+                }
+
+                Content.GestureRecognizers.Remove(_panGestureRecognizer);
+                Content = null;
+            });
         }
     }
 }
