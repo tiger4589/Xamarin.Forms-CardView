@@ -13,18 +13,20 @@ namespace CardView
         {
             _outerFrame = new Frame
             {
-                Padding = new Thickness(0),
-                HasShadow = false,
+                Padding = CardViewOutlineColorThickness,
+                HasShadow = CardViewHasShadow,
                 OutlineColor = Color.Transparent,
-                BackgroundColor = Color.Transparent
+                HeightRequest = CardViewHeightRequest,
+                BackgroundColor = CardViewOutlineColor
             };
 
             _innerFrame = new Frame
             {
-                Padding = new Thickness(0),
+                Padding = CardViewInnerFrameOutlineColorThickness,
                 HasShadow = false,
                 OutlineColor = Color.Transparent,
-                BackgroundColor = Color.Transparent
+                BackgroundColor = CardViewInnerFrameOutlineColor,
+                HeightRequest = CardViewHeightRequest
             };
 
             _outerFrame.Content = _innerFrame;
