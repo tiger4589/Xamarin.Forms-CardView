@@ -1,0 +1,43 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CardViewExample"
+             x:Class="CardViewExample.MainPage"
+             Title="CardView Examples">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20" Margin="5" Spacing="10">
+        <Label Text="Card View Content" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CardViewContent_OnTapped"></TapGestureRecognizer>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="Card View HeightRequest" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CardViewHeightRequest_OnTapped"></TapGestureRecognizer>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="Card View OutlineColor" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CardViewOutlineColor_OnTapped"></TapGestureRecognizer>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="Card View InlineFrame OutlineColor" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CardViewInlineFrameOutlineColor_OnTapped"></TapGestureRecognizer>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="Card View HasShadow" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CardViewHasShadow_OnTapped"></TapGestureRecognizer>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="Card View HasSwipeToClear enabled" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CardViewHasSwipeToClear_OnTapped"></TapGestureRecognizer>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="Card View All Examples" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CardViewAllExamples_OnTapped"></TapGestureRecognizer>
+            </Label.GestureRecognizers>
+        </Label>
+    </StackLayout>
+</ContentPage>

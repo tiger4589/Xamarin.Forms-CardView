@@ -1,0 +1,25 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cardView="clr-namespace:CardView;assembly=CardView"
+             x:Class="CardViewExample.CardViewHasShadowPage"
+             Title="CardView HasShadow Example"
+             BackgroundColor="White">
+    <ScrollView>
+        <StackLayout Padding="20" Margin="5">
+            <cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Gray" CardViewOutlineColorThickness="2" CardViewHasShadow="True">
+                <cardView:CardView.CardViewContent>
+                    <StackLayout  BackgroundColor="White">
+                        <Label Text="Gray Outline Color with Shadow"></Label>
+                    </StackLayout>
+                </cardView:CardView.CardViewContent>
+            </cardView:CardView>
+            <cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Gray" CardViewOutlineColorThickness="2" CardViewHasShadow="True">
+                <cardView:CardView.CardViewContent>
+                    <StackLayout  BackgroundColor="White">
+                        <Label Text="And Another one"></Label>
+                    </StackLayout>
+                </cardView:CardView.CardViewContent>
+            </cardView:CardView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

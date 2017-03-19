@@ -1,0 +1,30 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cardView="clr-namespace:CardView;assembly=CardView"
+             x:Class="CardViewExample.CardViewHeightRequestPage"
+             Title="CardView HeightRequest Example">
+    <StackLayout Padding="20" Margin="5">
+        <cardView:CardView CardViewHeightRequest="100">
+            <cardView:CardView.CardViewContent>
+                <StackLayout>
+                    <Label Text="I have 100 HeightRequest"></Label>
+                </StackLayout>
+            </cardView:CardView.CardViewContent>
+        </cardView:CardView>
+        <cardView:CardView CardViewHeightRequest="200">
+            <cardView:CardView.CardViewContent>
+                <StackLayout>
+                    <Label Text="I have 200 HeightRequest"></Label>
+                </StackLayout>
+            </cardView:CardView.CardViewContent>
+        </cardView:CardView>
+        <cardView:CardView CardViewHeightRequest="300">
+            <cardView:CardView.CardViewContent>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="HeightRequest 300 (which is there by default) With Image"></Label>
+                    <Image Source="icon.png"></Image>
+                </StackLayout>
+            </cardView:CardView.CardViewContent>
+        </cardView:CardView>
+    </StackLayout>
+</ContentPage>

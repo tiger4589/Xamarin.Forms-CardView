@@ -3,6 +3,11 @@ A Package to create a CardView using Xamarin.Forms that works on the three platf
 It is simple to use in a straight forward fashion.
 You may either use it in C#, or in XAML.  
 
+---
+To Install this nuget package:
+> PM> Install-Package XamarinForms.CardView
+---
+
 ## CardView Bindable Properties
 
 | Property                              		  | Property Name                 		    | Property Type   | Usage           		 			  | Default Value   |
@@ -16,17 +21,77 @@ You may either use it in C#, or in XAML.
 | CardViewHasShadowProperty 					  | CardViewHasShadow 						| bool            | Card View Shadow 					  | false           |  
 | IsSwipeToClearEnabledProperty          		  | IsSwipeToClearEnabled          			| bool       	  | Enable to clear Content With a Swipe  |  false          |
 
-Example:  
+###CardViewContent Example:  
+
 ```xml
-    <StackLayout>
-        <CardView CardViewHeightRequest="125" CardViewOutlineColor="Aqua" CardViewOutlineColorThickness="5">
-            <CardView.CardViewContent>
-                <!-- You can enter here any content you want to -->
-                <StackLayout>
-                    <Label Text="First Line" />
-                    <Label Text="Second Line" />
-                </StackLayout>
-            </CardView.CardViewContent>
-        </CardView>
-    </StackLayout>
+	<CardView>
+		<CardView.CardViewContent>
+			<StackLayout>
+				<Label Text="Label inside StackLayout forming the CardViewContent"></Label>
+			</StackLayout>
+		</CardView.CardViewContent>
+	</CardView>
 ```
+
+###CardViewHeightRequest Example:  
+
+```xml
+	<cardView:CardView CardViewHeightRequest="100">
+		<cardView:CardView.CardViewContent>
+			<StackLayout>
+				<Label Text="I have 100 Height"></Label>
+			</StackLayout>
+		</cardView:CardView.CardViewContent>
+	</cardView:CardView>
+```
+
+###CardViewOutlineColor Example:  
+
+```xml
+	<cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Black" CardViewOutlineColorThickness="2">
+		<cardView:CardView.CardViewContent>
+			<StackLayout  BackgroundColor="White">
+				<Label Text="I have 100 HeightRequest, and a black outline color"></Label>
+			</StackLayout>
+		</cardView:CardView.CardViewContent>
+	</cardView:CardView>
+```
+
+###CardViewInnerFrameOutlineColor Example:  
+
+```xml
+	<cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Black" CardViewOutlineColorThickness="2"
+				   CardViewInnerFrameOutlineColor="Aqua" CardViewInnerFrameOutlineColorThickness="2">
+		<cardView:CardView.CardViewContent>
+			<StackLayout  BackgroundColor="White">
+				<Label Text="I have 100 Height, and a black outline color, and an inline outline color Aqua"></Label>
+			</StackLayout>
+		</cardView:CardView.CardViewContent>
+	</cardView:CardView>
+```
+
+###CardViewHasShadow Example:  
+
+```xml
+	<cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Gray" CardViewOutlineColorThickness="2" CardViewHasShadow="True">
+		<cardView:CardView.CardViewContent>
+			<StackLayout  BackgroundColor="White">
+				<Label Text="Gray Outline Color with Shadow"></Label>
+			</StackLayout>
+		</cardView:CardView.CardViewContent>
+	</cardView:CardView>
+```
+
+###IsSwipeToClearEnabled Example:  
+
+```xml
+	<cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Gray" CardViewOutlineColorThickness="2" CardViewHasShadow="True"
+						   IsSwipeToClearEnabled="True">
+		<cardView:CardView.CardViewContent>
+			<StackLayout  BackgroundColor="White">
+				<Label Text="Swipe me and I will go away"></Label>
+			</StackLayout>
+		</cardView:CardView.CardViewContent>
+	</cardView:CardView>
+```
+

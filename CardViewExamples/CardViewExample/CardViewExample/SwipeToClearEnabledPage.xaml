@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cardView="clr-namespace:CardView;assembly=CardView"
+             x:Class="CardViewExample.SwipeToClearEnabledPage"
+             Title="CardView SwipeToClear Example">
+        <StackLayout Padding="20" Margin="5">
+        <cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Gray" CardViewOutlineColorThickness="2" CardViewHasShadow="True"
+                               IsSwipeToClearEnabled="True">
+            <cardView:CardView.CardViewContent>
+                <StackLayout  BackgroundColor="White">
+                    <Label Text="Swipe me and I will go away"></Label>
+                </StackLayout>
+            </cardView:CardView.CardViewContent>
+        </cardView:CardView>
+    </StackLayout>
+</ContentPage>

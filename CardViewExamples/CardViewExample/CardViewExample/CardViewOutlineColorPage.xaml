@@ -1,0 +1,30 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cardView="clr-namespace:CardView;assembly=CardView"
+             x:Class="CardViewExample.CardViewOutlineColorPage"
+             Title="CardView OutlineColor Example">
+    <StackLayout Padding="20" Margin="5">
+        <cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Black" CardViewOutlineColorThickness="2">
+            <cardView:CardView.CardViewContent>
+                <StackLayout  BackgroundColor="White">
+                    <Label Text="I have 100 HeightRequest, and a black outline color"></Label>
+                </StackLayout>
+            </cardView:CardView.CardViewContent>
+        </cardView:CardView>
+        <cardView:CardView CardViewHeightRequest="200" CardViewOutlineColor="Red" CardViewOutlineColorThickness="5">
+            <cardView:CardView.CardViewContent>
+                <StackLayout  BackgroundColor="White">
+                    <Label Text="I have 200 HeightRequest, and a red outline color with more thickness"></Label>
+                </StackLayout>
+            </cardView:CardView.CardViewContent>
+        </cardView:CardView>
+        <cardView:CardView CardViewHeightRequest="300" CardViewOutlineColor="Aqua" CardViewOutlineColorThickness="1">
+            <cardView:CardView.CardViewContent>
+                <StackLayout Orientation="Horizontal"  BackgroundColor="White">
+                    <Label Text="HeightRequest 300 With Image, Aqua outline color with smallest thickness"></Label>
+                    <Image Source="icon.png"></Image>
+                </StackLayout>
+            </cardView:CardView.CardViewContent>
+        </cardView:CardView>
+    </StackLayout>
+</ContentPage>

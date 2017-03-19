@@ -1,0 +1,24 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:CardView;assembly=CardView"
+             x:Class="CardViewExample.CardViewContentPage"
+             Title="CardView Content Example">
+    <StackLayout Padding="20" Margin="5">
+        <cv:CardView>
+            <cv:CardView.CardViewContent>
+                <StackLayout>
+                    <Label Text="I am a label, inside a StackLayout inside the CardView Content"></Label>
+                    <Label Text="I may not look nice, but I don't have all my properties set."></Label>
+                </StackLayout>
+            </cv:CardView.CardViewContent>
+        </cv:CardView>
+        <cv:CardView>
+            <cv:CardView.CardViewContent>
+                <StackLayout>
+                    <Label Text="What about an image?"></Label>
+                    <Image Source="icon.png"></Image>
+                </StackLayout>
+            </cv:CardView.CardViewContent>
+        </cv:CardView>
+    </StackLayout>
+</ContentPage>
