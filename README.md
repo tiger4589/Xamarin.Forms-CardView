@@ -21,7 +21,7 @@ To Install this nuget package:
 | CardViewHasShadowProperty 					  | CardViewHasShadow 						| bool            | Card View Shadow 					  | false           |  
 | IsSwipeToClearEnabledProperty          		  | IsSwipeToClearEnabled          			| bool       	  | Enable to clear Content With a Swipe  |  false          |
 
-###CardViewContent Example:  
+### CardViewContent Example:  
 
 ```xml
 	<CardView>
@@ -33,7 +33,7 @@ To Install this nuget package:
 	</CardView>
 ```
 
-###CardViewHeightRequest Example:  
+### CardViewHeightRequest Example:  
 
 ```xml
 	<cardView:CardView CardViewHeightRequest="100">
@@ -45,7 +45,7 @@ To Install this nuget package:
 	</cardView:CardView>
 ```
 
-###CardViewOutlineColor Example:  
+### CardViewOutlineColor Example:  
 
 ```xml
 	<cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Black" CardViewOutlineColorThickness="2">
@@ -57,7 +57,7 @@ To Install this nuget package:
 	</cardView:CardView>
 ```
 
-###CardViewInnerFrameOutlineColor Example:  
+### CardViewInnerFrameOutlineColor Example:  
 
 ```xml
 	<cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Black" CardViewOutlineColorThickness="2"
@@ -70,7 +70,7 @@ To Install this nuget package:
 	</cardView:CardView>
 ```
 
-###CardViewHasShadow Example:  
+### CardViewHasShadow Example:  
 
 ```xml
 	<cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Gray" CardViewOutlineColorThickness="2" CardViewHasShadow="True">
@@ -82,7 +82,7 @@ To Install this nuget package:
 	</cardView:CardView>
 ```
 
-###IsSwipeToClearEnabled Example:  
+### IsSwipeToClearEnabled Example:  
 
 ```xml
 	<cardView:CardView CardViewHeightRequest="100" CardViewOutlineColor="Gray" CardViewOutlineColorThickness="2" CardViewHasShadow="True"
