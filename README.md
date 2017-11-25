@@ -19,7 +19,8 @@ To Install this nuget package:
 | CardViewOutlineColorThicknessProperty 		  | CardViewOutlineColorThickness           | Thickness       | OutlineColor Thickness   			  | 0    		    |
 | CardViewInnerFrameOutlineColorThicknessProperty | CardViewInnerFrameOutlineColorThickness | Thickness 	  | Inner OutlineColor Thickness 		  | 0 				|
 | CardViewHasShadowProperty 					  | CardViewHasShadow 						| bool            | Card View Shadow 					  | false           |  
-| IsSwipeToClearEnabledProperty          		  | IsSwipeToClearEnabled          			| bool       	  | Enable to clear Content With a Swipe  |  false          |
+| IsSwipeToClearEnabledProperty          		  | IsSwipeToClearEnabled          			| bool       	  | Enable to clear Content With a Swipe  | false           |
+| CardViewHorizontalOptionsProperty				  | CardViewHorizontalOptions				| LayoutOptions	  | Set Card View Horisontal Options	  | Start			|	
 
 ### CardViewContent Example:  
 
