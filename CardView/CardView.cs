@@ -26,12 +26,20 @@ namespace CardView
                 HasShadow = false,
                 OutlineColor = Color.Transparent,
                 BackgroundColor = CardViewInnerFrameOutlineColor,
-                HeightRequest = CardViewHeightRequest
+                HeightRequest = CardViewHeightRequest,
+                HorizontalOptions = CardViewHorizontalOptions
             };
 
             _outerFrame.Content = _innerFrame;
             Content = _outerFrame;
         }
+
+        public static readonly BindableProperty CardViewHorizontalOptionsProperty = BindableProperty.Create(
+            propertyName: "CardViewHorizontalOptions",
+            returnType: typeof(LayoutOptions),
+            declaringType: typeof(CardView),
+            defaultValue: LayoutOptions.Start,
+            propertyChanged: CardViewHorizontalOptionsChanged);
 
         public static readonly BindableProperty CardViewContentProperty = BindableProperty.Create(
             propertyName: "CardViewContent",
@@ -43,7 +51,7 @@ namespace CardView
             propertyName: "CardViewHeightRequest",
             returnType: typeof(double),
             declaringType: typeof(CardView),
-            defaultValue: 300.0,
+            defaultValue: -1,
             propertyChanged: CardViewHeightRequestChanged);
 
         public static readonly BindableProperty CardViewOutlineColorProperty = BindableProperty.Create(
@@ -97,6 +105,18 @@ namespace CardView
             set
             {
                 SetValue(CardViewContentProperty, value);
+            }
+        }
+
+        public LayoutOptions CardViewHorizontalOptions
+        {
+            get
+            {
+                return (LayoutOptions)GetValue(CardViewHorizontalOptionsProperty);
+            }
+            set
+            {
+                SetValue(CardViewHorizontalOptionsProperty, value);
             }
         }
 
@@ -223,10 +243,20 @@ namespace CardView
         {
             CompareOldAndNewValue(oldvalue, newvalue, () => ((CardView) bindable).ChangeIsSwipeToClearProperty());
         }
-        
+
+        private static void CardViewHorizontalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            CompareOldAndNewValue(oldvalue, newvalue, () => ((CardView)bindable).ChangeHorizontalOptionsProperty());
+        }
+
         private void ChangeCardViewContent()
         {
             _innerFrame.Content = CardViewContent;
+        }
+
+        private void ChangeHorizontalOptionsProperty()
+        {
+            _innerFrame.HorizontalOptions = CardViewHorizontalOptions;
         }
 
         private void ChangeCardViewHeightRequest()
