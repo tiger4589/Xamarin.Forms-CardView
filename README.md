@@ -13,7 +13,7 @@ To Install this nuget package:
 | Property                              		  | Property Name                 		    | Property Type   | Usage           		 			  | Default Value   |
 | :-------------:                       		  | :-------------:               		    | :-------------: | :-------------: 		 			  | :-------------: |
 | CardViewContentProperty               		  | CardViewContent               		    | View            | CardView Content 		 			  | None            |
-| CardViewHeightRequestProperty         		  | CardViewHeightRequest                   | double          | Height Request  		 		 	  | 300.0           |
+| CardViewHeightRequestProperty         		  | CardViewHeightRequest                   | double          | Height Request  		 		 	  | -1              |
 | CardViewOutlineColorProperty          		  | CardViewOutlineColor                    | Color           | Outline Color   		 			  | Transparent     |
 | CardViewInnerFrameOutlineColorProperty 		  | CardViewInnerFrameOutlineColor          | Color 		  | Inner OutlineColor 					  | Transparent 	|
 | CardViewOutlineColorThicknessProperty 		  | CardViewOutlineColorThickness           | Thickness       | OutlineColor Thickness   			  | 0    		    |
