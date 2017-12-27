@@ -11,14 +11,73 @@ namespace CardView
 
         public CardView()
         {
-            _outerFrame = new Frame
-            {
-                Padding = CardViewOutlineColorThickness,
-                HasShadow = CardViewHasShadow,
-                OutlineColor = Color.Transparent,
-                HeightRequest = CardViewHeightRequest,
-                BackgroundColor = CardViewOutlineColor
-            };
+            CardViewHorizontalOptionsProperty = BindableProperty.Create(
+               propertyName: "CardViewHorizontalOptions",
+               returnType: typeof(LayoutOptions),
+               declaringType: typeof(CardView),
+               defaultValue: LayoutOptions.Start,
+               propertyChanged: CardViewHorizontalOptionsChanged);
+
+            CardViewContentProperty = BindableProperty.Create(
+                propertyName: "CardViewContent",
+                returnType: typeof(View),
+                declaringType: typeof(CardView),
+                propertyChanged: CardViewContentChanged);
+
+            CardViewOutlineColorThicknessProperty = BindableProperty.Create(
+                propertyName: "CardViewOutlineColorThickness",
+                returnType: typeof(Thickness),
+                declaringType: typeof(CardView),
+                defaultValue: new Thickness(0),
+                propertyChanged: CardViewOutlineColorThicknessChanged);
+
+            CardViewHeightRequestProperty = BindableProperty.Create(
+                propertyName: "CardViewHeightRequest",
+                returnType: typeof(double),
+                declaringType: typeof(CardView),
+                defaultValue: -1d,
+                propertyChanged: CardViewHeightRequestChanged);
+
+            CardViewOutlineColorThicknessProperty = BindableProperty.Create(
+                propertyName: "CardViewOutlineColorThickness",
+                returnType: typeof(Thickness),
+                declaringType: typeof(CardView),
+                defaultValue: new Thickness(0),
+                propertyChanged: CardViewOutlineColorThicknessChanged);
+
+            CardViewInnerFrameOutlineColorProperty = BindableProperty.Create(
+                propertyName: "CardViewInnerFrameOutlineColor",
+                declaringType: typeof(CardView),
+                returnType: typeof(Color),
+                defaultValue: Color.Transparent,
+                propertyChanged: CardViewInnerFrameOutlineColorChanged);
+
+            CardViewOutlineColorProperty = BindableProperty.Create(
+                propertyName: "CardViewOutlineColor",
+                declaringType: typeof(CardView),
+                returnType: typeof(Color),
+                defaultValue: Color.Transparent,
+                propertyChanged: CardViewOutlineColorChanged);
+
+            CardViewInnerFrameOutlineColorThicknessProperty = BindableProperty.Create(
+                propertyName: "CardViewInnerFrameOutlineColorThickness",
+                returnType: typeof(Thickness),
+                declaringType: typeof(CardView),
+                defaultValue: new Thickness(0),
+                propertyChanged: CardViewInnerFrameOutlineColorThicknessChanged);
+
+            CardViewHasShadowProperty = BindableProperty.Create(
+                propertyName: "CardViewHasShadow",
+                returnType: typeof(bool),
+                declaringType: typeof(CardView),
+                defaultValue: false,
+                propertyChanged: CardViewHasShadowChanged);
+            IsSwipeToClearEnabledProperty = BindableProperty.Create(
+                propertyName: "IsSwipeToClearEnabled",
+                returnType: typeof(bool),
+                declaringType: typeof(CardView),
+                defaultValue: false,
+                propertyChanged: CardViewSwipeToClearPropertyChanged);
 
             _innerFrame = new Frame
             {
@@ -30,72 +89,38 @@ namespace CardView
                 HorizontalOptions = CardViewHorizontalOptions
             };
 
+            _outerFrame = new Frame
+            {
+                Padding = CardViewOutlineColorThickness,
+                HasShadow = CardViewHasShadow,
+                OutlineColor = Color.Transparent,
+                HeightRequest = CardViewHeightRequest,
+                BackgroundColor = CardViewOutlineColor
+            };
+
+
             _outerFrame.Content = _innerFrame;
             Content = _outerFrame;
         }
 
-        public static readonly BindableProperty CardViewHorizontalOptionsProperty = BindableProperty.Create(
-            propertyName: "CardViewHorizontalOptions",
-            returnType: typeof(LayoutOptions),
-            declaringType: typeof(CardView),
-            defaultValue: LayoutOptions.Start,
-            propertyChanged: CardViewHorizontalOptionsChanged);
+        public readonly BindableProperty CardViewHorizontalOptionsProperty;
 
-        public static readonly BindableProperty CardViewContentProperty = BindableProperty.Create(
-            propertyName: "CardViewContent",
-            returnType: typeof(View),
-            declaringType: typeof(CardView),
-            propertyChanged: CardViewContentChanged);
+        public readonly BindableProperty CardViewContentProperty;
 
-        public static readonly BindableProperty CardViewHeightRequestProperty = BindableProperty.Create(
-            propertyName: "CardViewHeightRequest",
-            returnType: typeof(double),
-            declaringType: typeof(CardView),
-            defaultValue: -1,
-            propertyChanged: CardViewHeightRequestChanged);
+        public readonly BindableProperty CardViewHeightRequestProperty;
 
-        public static readonly BindableProperty CardViewOutlineColorProperty = BindableProperty.Create(
-            propertyName: "CardViewOutlineColor",
-            declaringType: typeof(CardView),
-            returnType: typeof(Color),
-            defaultValue: Color.Transparent,
-            propertyChanged: CardViewOutlineColorChanged);
+        public readonly BindableProperty CardViewOutlineColorProperty;
 
-        public static readonly BindableProperty CardViewInnerFrameOutlineColorProperty = BindableProperty.Create(
-            propertyName: "CardViewInnerFrameOutlineColor",
-            declaringType: typeof(CardView),
-            returnType: typeof(Color),
-            defaultValue: Color.Transparent,
-            propertyChanged: CardViewInnerFrameOutlineColorChanged);
+        public readonly BindableProperty CardViewInnerFrameOutlineColorProperty;
 
-        public static readonly BindableProperty CardViewOutlineColorThicknessProperty = BindableProperty.Create(
-            propertyName: "CardViewOutlineColorThickness",
-            returnType: typeof(Thickness),
-            declaringType: typeof(CardView),
-            defaultValue: new Thickness(0),
-            propertyChanged: CardViewOutlineColorThicknessChanged);
+        public readonly BindableProperty CardViewOutlineColorThicknessProperty;
 
-        public static readonly BindableProperty CardViewInnerFrameOutlineColorThicknessProperty = BindableProperty.Create(
-            propertyName: "CardViewInnerFrameOutlineColorThickness",
-            returnType: typeof(Thickness),
-            declaringType: typeof(CardView),
-            defaultValue: new Thickness(0),
-            propertyChanged: CardViewInnerFrameOutlineColorThicknessChanged);
+        public readonly BindableProperty CardViewInnerFrameOutlineColorThicknessProperty;
 
-        public static readonly BindableProperty CardViewHasShadowProperty = BindableProperty.Create(
-            propertyName: "CardViewHasShadow",
-            returnType: typeof(bool),
-            declaringType: typeof(CardView),
-            defaultValue: false,
-            propertyChanged: CardViewHasShadowChanged);
+        public readonly BindableProperty CardViewHasShadowProperty;
 
-        public static readonly BindableProperty IsSwipeToClearEnabledProperty = BindableProperty.Create(
-            propertyName: "IsSwipeToClearEnabled",
-            returnType: typeof(bool),
-            declaringType: typeof(CardView),
-            defaultValue: false,
-            propertyChanged: CardViewSwipeToClearPropertyChanged);
-        
+        public readonly BindableProperty IsSwipeToClearEnabledProperty;
+
         public View CardViewContent
         {
             get
