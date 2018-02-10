@@ -17,7 +17,7 @@ In order to accept your pull request, make sure to follow these simple steps:
    * Explain the changes you made
       * Do they fix an issue?
       * Is it a new feature?
-      * Do they enhance an existing feature?
+      * Do they enhance an existing feature?  
    Make sure to include all the explanation needed.
    * If it's a bug fixing, I will be more than glad if you explained how did you encounter the bug, and what did you change to fix it.
    
