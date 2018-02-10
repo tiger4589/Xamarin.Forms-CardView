@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.1.1.5</Version>
+    <Authors>Paul Karam</Authors>
+    <Company>Paul Karam</Company>
+    <Description>Simple package that allows you to create a CardView in Xamarin.Forms projects for the three platforms (Android, iOS, UWP)</Description>
+    <PackageLicenseUrl>https://github.com/tiger4589/Xamarin.Forms-CardView/blob/master/LICENSE</PackageLicenseUrl>
+    <Copyright>Copyright 2018</Copyright>
+    <PackageReleaseNotes>Created XamarinForms.CardView with .Net Standard 2.0 framework.</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/tiger4589/Xamarin.Forms-CardView</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tiger4589/Xamarin.Forms-CardView</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>Xamarin Forms Xamarin.Forms CardView XamarinForms</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>XamarinForms.CardView.NetStandard</PackageId>
+    <Product>XamarinForms.CardView.NetStandard</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
+  </ItemGroup>
+
+</Project>
