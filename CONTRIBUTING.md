@@ -1,7 +1,7 @@
 **First of all, I would like to thank you in advance for your time contributing to Xamarin.Forms-CardView component.**
 
 * Do you have a question?
-In case you just have a question to ask about the component, I would like you to send me an email to my [address](paulkaram1989@hotmail.com).
+In case you just have a question to ask about the component, I would like you to send me an email to my address: paulkaram1989@hotmail.com.
 It's better than opening an issue for a normal question. I promise to answer as fast as possible.
 
 * Do you have an issue?
