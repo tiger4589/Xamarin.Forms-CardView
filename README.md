@@ -4,8 +4,11 @@ It is simple to use in a straight forward fashion.
 You may either use it in C#, or in XAML.  
 
 ---
-To Install this nuget package:
+To Install this nuget package (.Net Framework):
 > PM> Install-Package XamarinForms.CardView
+
+To Install package (.Net Standard 2.0)
+> PM> Install-Package XamarinForms.CardView.NetStandard
 ---
 
 ## CardView Bindable Properties
