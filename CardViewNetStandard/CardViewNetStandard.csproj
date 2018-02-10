@@ -16,6 +16,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>XamarinForms.CardView.NetStandard</PackageId>
     <Product>XamarinForms.CardView.NetStandard</Product>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>

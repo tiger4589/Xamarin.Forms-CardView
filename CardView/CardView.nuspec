@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>XamarinForms.CardView</id>
-    <version>1.1.1.1</version>
+    <version>1.1.1.5</version>
     <title>$title$</title>
     <authors>Paul Karam</authors>
     <owners>Paul Karam</owners>
@@ -10,8 +10,8 @@
     <projectUrl>https://github.com/tiger4589/Xamarin.Forms-CardView</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Simple package that allows you to create a CardView in Xamarin.Forms projects for the three platforms (Android, iOS, UWP)</description>
-    <releaseNotes>Changed default value of height request to -1 - Updated to last Xamarin.Forms</releaseNotes>
-    <copyright>Copyright 2017</copyright>
+    <releaseNotes>Fixed null default value bug</releaseNotes>
+    <copyright>Copyright 2017-2018</copyright>
     <tags>Xamarin Forms Xamarin.Forms CardView XamarinForms</tags>
   </metadata>
 </package>
