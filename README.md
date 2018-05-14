@@ -1,4 +1,9 @@
 # Xamarin.Forms-CardView
+
+# ATTENTION - ALERT
+This package is not currently under maintenance due to heavy workload on my part. If you feel there's an error or bug somewhere and you can fix it, feel free to contribute. I'll be more than happy to accept them. Thank you.
+
+---
 A Package to create a CardView using Xamarin.Forms that works on the three platforms (Android, iOS, UWP)
 It is simple to use in a straight forward fashion.
 You may either use it in C#, or in XAML.  
